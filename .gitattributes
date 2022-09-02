@@ -1,6 +1,6 @@
 *.R linguist-detectable=true
 *.RData linguist-detectable=true
-*.Rmd linguist-detectable=true
+*.Rmd linguist-detectable=false
 *.dbf linguist-detectable=false
 *.shp linguist-detectable=false
 *.shx linguist-detectable=false
