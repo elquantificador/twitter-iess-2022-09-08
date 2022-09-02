@@ -8,3 +8,4 @@
 *.html linguist-detectable=false
 *.csl linguist-detectable=false
 *.bib linguist-detectable=false
+*.gitattributes linguist-detectable=false
