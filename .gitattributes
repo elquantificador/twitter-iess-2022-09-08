@@ -1,4 +1,4 @@
-*.html linguist-detectable=true
+*.html linguist-detectable=false
 *.pdf linguist-detectable=false
 *.R linguist-detectable=true
 *.RData linguist-detectable=false
