@@ -1,0 +1,12 @@
+*.html linguist-detectable=true
+*.pdf linguist-detectable=false
+*.R linguist-detectable=true
+*.RData linguist-detectable=false
+*.dbf linguist-detectable=false
+*.shp linguist-detectable=false
+*.shx linguist-detectable=false
+*.png linguist-detectable=false
+*.zip linguist-detectable=false
+*.bib linguist-detectable=true
+*.Rmd linguist-detectable=true
+*.cls linguist-detectable=false
