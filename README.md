@@ -12,7 +12,7 @@ This **repository** includes all the files and scripts to reproduce the analysis
 setx PATH "C:\Program Files\Java\jre1.8.0_211\bin\server;%PATH%"
 ```
 
-Finally set `Java` environment running the following command in the `RStudio`'s console:
+Finally set `Java` environment running the following command inside the `RStudio`'s console:
 
 ``` r
 Sys.setenv(JAVA_HOME = "")
