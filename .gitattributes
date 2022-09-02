@@ -1,0 +1,10 @@
+*.R linguist-vendored=true
+*.RData linguist-vendored=true
+*.Rmd linguist-vendored=true
+*.dbf linguist-vendored=false
+*.shp linguist-vendored=false
+*.shx linguist-vendored=false
+*.png linguist-vendored=false
+*.html linguist-vendored=false
+*.csl linguist-vendored=false
+*.bib linguist-vendored=false
