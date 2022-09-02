@@ -44,4 +44,4 @@ To reproduce the analysis, run `twitter_analysis.R` from `code` folder.
 This repository has **two** reports, both within the `report` folder.
 
 - **Report 1:** The first report is the `report.pdf` file. To replicate it: download, unzip and compile `report.zip` using `LaTex`.
-- **Report 2:** This analysis was created for publication in [El Quantificador](https://elquantificador.org/). For this purpose, there is a short spanish version inside the `report_spanish` folder called `report.Rmd`. There are also its respective `.html` compilation, bibliography and references styling files. This report focuses on a mass audience.
+- **Report 2:** This analysis was created for publication in [El Quantificador](https://elquantificador.org/). For this purpose, there is a short report spanish version inside the `report_spanish` folder called `report.Rmd`. There are also its respective `.html` compilation, bibliography and references styling files. This report focuses on a mass audience.
