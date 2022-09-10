@@ -89,8 +89,7 @@ iess_geo <- anti_join(iess_geo,lat_condition)
 # group coordinates by frequency creting a new freq variable
 iess_geo <- iess_geo %>%  
   group_by(long, lat) %>% 
-  summarise(freq = n()) 
-iess_geo  
+  summarise(freq = n())
 
 shp <- readOGR("../data", "provincias") # load ECU shapefile
 shp <- ms_simplify(shp, keep=0.15) # simplify polygons
