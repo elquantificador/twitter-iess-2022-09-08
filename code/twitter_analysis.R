@@ -3,7 +3,6 @@ library(tm)
 library(qdap)
 library(wordcloud)
 library(RColorBrewer)
-library(syuzhet)
 library(rgdal)
 library(rtweet)
 library(rmapshaper)
@@ -12,7 +11,7 @@ library(rmapshaper)
 load("../data/tweets_iess_list.RData") # load initial data
 
 # --------------------------------------------
-# ------------- FRECUENT WORDS ---------------
+# ------------- FREQUENT WORDS ---------------
 # --------------------------------------------
 
 # Function for cleaning the text
@@ -86,20 +85,20 @@ lat_condition <- subset(iess_geo, lat < -5.015210 | lat > 1.456722)
 # remove latitudinal outliers
 iess_geo <- anti_join(iess_geo,lat_condition)
 
-# group coordinates by frequency creting a new freq variable
+# group coordinates by frequency creating a new freq variable
 iess_geo <- iess_geo %>%  
   group_by(long, lat) %>% 
   summarise(freq = n())
 
 shp <- readOGR("../data", "provincias") # load ECU shapefile
 shp <- ms_simplify(shp, keep=0.15) # simplify polygons
-df = fortify(shp)
+df <- fortify(shp)
 
 # --------------------------------------
 # --------------- PLOTS ----------------
 # --------------------------------------
 
-# ------------- FRECUENT WORDS ---------------
+# ------------- FREQUENT WORDS ---------------
 # Bar plot of frequent terms
 bar_plt <- ggplot(termfreq_clean, aes(x = reorder(WORD, -FREQ), y = FREQ)) + 
   geom_bar(stat = "identity", fill = "#09A4CC") + 

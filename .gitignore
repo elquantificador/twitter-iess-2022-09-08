@@ -1,0 +1,16 @@
+# R temporary files
+*.Rhistory
+*.RData
+*.Rdata
+.Rproj.user/
+
+# Compiled images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tiff
+*.bmp
+
+# Zip archives
+*.zip
