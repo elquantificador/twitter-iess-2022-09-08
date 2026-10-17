@@ -1,0 +1,3 @@
+source_name,institution,period,official_url,downloaded_file,script
+Tuits públicos con menciones del IESS,Twitter/X,2022 (rango exacto no documentado),,data/tweets_iess_list.RData,code/twitter_analysis.R
+Límites provinciales de Ecuador,No documentada en el repositorio,No documentado,,data/provincias.shp,code/twitter_analysis.R
