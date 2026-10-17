@@ -8,49 +8,67 @@ repositorios.
 
 - **Título:** ¿Qué piensan los ecuatorianos sobre el Instituto Ecuatoriano de Seguridad Social (IESS)?
 - **Descripción del repositorio:** Repositorio del artículo de André Cóndor: "¿Qué piensan los ecuatorianos sobre el Instituto Ecuatoriano de Seguridad Social (IESS)?"
-- **Autoría:** [COMPLETAR: nombres, igual que en el sitio]
-- **Fecha de publicación:** [COMPLETAR: AAAA-MM-DD]
-- **Artículo publicado:** [COMPLETAR: enlace a elquantificador.org]
-- **Categoría:** [COMPLETAR: Economía, Política, Salud, Educación o Valores y
-  comportamiento]
-- **Edición:** [COMPLETAR: por ejemplo, Julio-Diciembre 2026]
+- **Autoría:** André Sebastián Cóndor
+- **Fecha de publicación:** 2022-09-08
+- **Artículo publicado:** https://elquantificador.org/post/salud/2022-09-08-twitter-iess-analysis/
+- **Categoría:** Salud (el sitio también la clasifica en Política)
+- **Edición:** Julio 2022-Enero 2023
 
 ## Estado
 
-[COMPLETAR: en preparación, en revisión editorial o publicado. Anota qué falta
-para cerrar el artículo.]
+Publicado el 2022-09-08. El repositorio no incluye el código de descarga de
+los tuits; el análisis parte del archivo ya guardado `data/tweets_iess_list.RData`.
 
 ## Pregunta y alcance
 
-[COMPLETAR: dos o tres oraciones con la pregunta, el periodo, la cobertura
-geográfica y la unidad de análisis.]
+El artículo analiza qué opinan los ecuatorianos sobre el IESS a partir de unos
+10 mil tuits ecuatorianos con menciones del instituto, descargados con la API
+de Twitter en 2022 (el informe en `report/` está fechado en agosto de 2022).
+Identifica las 20 palabras más frecuentes, una nube de 50 palabras, el tuit con
+más retuits y la ubicación de los tuits con coordenadas en el mapa de las
+provincias de Ecuador. La unidad de análisis es el tuit.
 
 ## Requisitos
 
-- R [COMPLETAR: versión, por ejemplo 4.5.x].
-- Paquetes de R: [COMPLETAR: lista en orden alfabético].
+- R: 4.1 o superior, según el README anterior (es una recomendación, no una
+  versión registrada en `sessionInfo` ni en `renv`). Requiere también Java
+  configurado para R (paquete `qdap`).
+- Paquetes de R: qdap, RColorBrewer, rgdal, rmapshaper, rtweet, tidyverse, tm,
+  wordcloud.
 
 ## Fuentes de datos
 
 | Fuente | Institución | Periodo | Acceso | Script |
 |---|---|---|---|---|
-| [COMPLETAR] | [COMPLETAR] | [COMPLETAR] | [COMPLETAR: descarga automática o manual] | `code/cleaning/00_download_fuente.R` |
+| Tuits públicos con menciones del IESS (`data/tweets_iess_list.RData`) | Twitter/X | 2022; el rango exacto de fechas no consta en el repositorio ni en el artículo | Descarga con la API de Twitter, fuera de este repositorio; el archivo ya guardado se versiona | `code/twitter_analysis.R` |
+| Límites provinciales (`data/provincias.shp`, `.shx`, `.dbf`) | No documentada en el repositorio | No documentado | Archivos versionados en `data/` | `code/twitter_analysis.R` |
 
-Si alguna fuente no permite descarga automática, explica aquí cómo obtenerla y
-dónde colocarla en `data/raw/`.
+Los tuits son públicos. El repositorio no documenta quién publicó el shapefile
+de provincias ni su vintage.
 
 ## Salidas
 
-- `outputs/tables/[COMPLETAR].csv`: [COMPLETAR: qué contiene].
-- `outputs/graphs/[COMPLETAR].png`: [COMPLETAR: qué muestra].
-- `article/images/graficoN.png`: copias numeradas según el orden del texto.
+- `images/bar_plot.png`: las 20 palabras más frecuentes en los tuits.
+- `images/wordcloud.png`: nube de las 50 palabras más frecuentes.
+- `images/map.png`: mapa de las provincias con los puntos de origen de los tuits.
+- `report/report_spanish/report.Rmd` y `report.html`: texto del informe en español; `report/report.pdf` y `report/report.zip` son versiones del informe.
 
 ## Cómo replicar en este repositorio
 
-Este repositorio conserva sus instrucciones originales en la sección
-"README anterior". Si todavía no tiene `MASTER.R`, sigue esas instrucciones.
-Cuando se migre a la estructura estándar, reemplaza esta sección por los pasos
-de `MASTER.R`.
+Los pasos salen del README anterior y del script.
+
+1. Instala los paquetes listados y configura Java para R, como indica el
+   README anterior (`setx PATH ...` en Windows y `Sys.setenv(JAVA_HOME = "")`
+   en la consola de R).
+2. Ejecuta `code/twitter_analysis.R`. El script carga
+   `../data/tweets_iess_list.RData` y lee `../data/provincias`, de modo que
+   las rutas son relativas a `code/`; fija `code/` como directorio de trabajo
+   (el README anterior indica la raíz del repositorio, lo que no coincide con
+   las rutas del script).
+3. El script guarda `bar_plot.png`, `wordcloud.png` y `map.png` en `images/`
+   (rutas `../images/`).
+
+El script no descarga tuits nuevos; `rtweet` solo se usa para `lat_lng()`.
 
 ## README anterior
 
