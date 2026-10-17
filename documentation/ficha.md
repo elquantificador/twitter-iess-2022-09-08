@@ -60,13 +60,10 @@ Los pasos salen del README anterior y del script.
 1. Instala los paquetes listados y configura Java para R, como indica el
    README anterior (`setx PATH ...` en Windows y `Sys.setenv(JAVA_HOME = "")`
    en la consola de R).
-2. Ejecuta `code/twitter_analysis.R`. El script carga
-   `../data/tweets_iess_list.RData` y lee `../data/provincias`, de modo que
-   las rutas son relativas a `code/`; fija `code/` como directorio de trabajo
-   (el README anterior indica la raíz del repositorio, lo que no coincide con
-   las rutas del script).
-3. El script guarda `bar_plot.png`, `wordcloud.png` y `map.png` en `images/`
-   (rutas `../images/`).
+2. Ejecuta `code/twitter_analysis.R` con la raíz del repositorio como
+   directorio de trabajo. El script carga `data/tweets_iess_list.RData` y lee
+   `data/provincias`.
+3. El script guarda `bar_plot.png`, `wordcloud.png` y `map.png` en `images/`.
 
 El script no descarga tuits nuevos; `rtweet` solo se usa para `lat_lng()`.
 
