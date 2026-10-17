@@ -8,7 +8,7 @@ library(rtweet)
 library(rmapshaper)
 
 # First of all, remember to set the correct working directory
-load("../data/tweets_iess_list.RData") # load initial data
+load("data/tweets_iess_list.RData") # load initial data
 
 # --------------------------------------------
 # ------------- FREQUENT WORDS ---------------
@@ -90,7 +90,7 @@ iess_geo <- iess_geo %>%
   group_by(long, lat) %>% 
   summarise(freq = n())
 
-shp <- readOGR("../data", "provincias") # load ECU shapefile
+shp <- readOGR("data", "provincias") # load ECU shapefile
 shp <- ms_simplify(shp, keep=0.15) # simplify polygons
 df <- fortify(shp)
 
@@ -107,10 +107,10 @@ bar_plt <- ggplot(termfreq_clean, aes(x = reorder(WORD, -FREQ), y = FREQ)) +
   ggtitle('Palabras frecuentes') + theme(plot.title = element_text(hjust = 0.5)) +
   xlab('Palabra')+ ylab('Frecuencia') +
   theme(panel.grid.major = element_blank(),panel.grid.minor = element_blank())
-ggsave("../images/bar_plot.png", bar_plt, width = 7, height = 4) # save fig
+ggsave("images/bar_plot.png", bar_plt, width = 7, height = 4) # save fig
 
 # Create word cloud with 6 colors and max 50 words
-png(file="../images/wordcloud.png") # initialize save fig
+png(file="images/wordcloud.png") # initialize save fig
 # Wordcloud fig:
 wordcloud(twt_txt, max.words = 50,
           colors = brewer.pal(10, "Dark2"), 
@@ -127,4 +127,4 @@ map <- ggplot(df, aes(x = long, y = lat, group = group)) +
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         legend.position = "none") +
   xlab(element_blank()) + ylab(element_blank()) + labs(size = "Cantidad de tweets")
-ggsave("../images/map.png", map, width = 7, height = 6) # save fig
+ggsave("images/map.png", map, width = 7, height = 6) # save fig
